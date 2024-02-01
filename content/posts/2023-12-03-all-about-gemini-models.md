@@ -1,6 +1,6 @@
 ---
 title: "All About Gemini Models and Training Process"
-date: 2022-12-03T10:04:49+05:30
+date: 2023-12-03T10:04:49+05:30
 draft: false
 tags: ['LLM', 'Gemini', 'Generative AI'] 
 ---
