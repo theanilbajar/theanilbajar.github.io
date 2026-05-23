@@ -1,8 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect, useCallback } from 'react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import rehypeHighlight from 'rehype-highlight';
 import postsData from '../data/posts.json';
 import TagBadge from '../components/TagBadge';
 
@@ -39,8 +40,22 @@ function extractHeadings(markdown) {
 export default function PostDetail() {
   const { postId } = useParams();
   const post = postsData.find(p => p.id === postId);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const headings = useMemo(() => post ? extractHeadings(post.content) : [], [post]);
+
+  const handleScroll = useCallback(() => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    setScrollProgress(parseInt((winScroll / height) * 100));
+    setShowBackToTop(winScroll > 400);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
 
   if (!post) {
     return (
@@ -67,6 +82,9 @@ export default function PostDetail() {
 
   return (
     <div className="page post-detail-page">
+      {/* Reading progress bar */}
+      <div className="progress-bar" style={{ width: `${scrollProgress}%` }} />
+
       <nav className="breadcrumbs">
         <Link to="/">Home</Link> / <Link to="/posts">Posts</Link> / <span>{post.title}</span>
       </nav>
@@ -99,7 +117,7 @@ export default function PostDetail() {
         <div className="post-detail-content markdown-body">
           <Markdown
             remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeRaw]}
+            rehypePlugins={[rehypeRaw, rehypeHighlight]}
             components={{
               h2: ({ children, ...props }) => {
                 const text = extractTextFromChildren(children);
@@ -153,6 +171,17 @@ export default function PostDetail() {
           </Link>
         )}
       </nav>
+
+      {/* Back to top button */}
+      {showBackToTop && (
+        <button
+          className="back-to-top"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Back to top"
+        >
+          ↑
+        </button>
+      )}
     </div>
   );
 }

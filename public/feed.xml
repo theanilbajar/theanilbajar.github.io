@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Anil&apos;s Blog</title>
+  <subtitle>Sharing my learnings and new research notes.</subtitle>
+  <link href="https://theanilbajar.github.io/feed.xml" rel="self"/>
+  <link href="https://theanilbajar.github.io"/>
+  <updated>Thu, 25 Dec 2025 06:34:49 GMT</updated>
+  <id>https://theanilbajar.github.io/</id>
+  <author>
+    <name>Anil Kumar</name>
+  </author>
+  <entry>
+    <id>https://theanilbajar.github.io/posts/reinforcement-learning-techniques-for-large-language-models</id>
+    <title>Reinforcement Learning Techniques for Large Language Models</title>
+    <link href="https://theanilbajar.github.io/posts/reinforcement-learning-techniques-for-large-language-models"/>
+    <updated>Thu, 25 Dec 2025 06:34:49 GMT</updated>
+    <published>Thu, 25 Dec 2025 06:34:49 GMT</published>
+    <summary type="text">## What is Reinforcement Learning?
+
+Reinforcement Learning (RL) is a type of machine learning where an agent learns to make decisions by taking actions in an environment to maximize cumulative reward. The agent learns through trial and error, receiving feedback in the form of rewards or penalties.
+
+## How does it help in Generative AI or Large Language Models?
+
+RL helps align LLM outputs with human preferences and desired behaviors. Instead of just predicting the next token, RL enables LLMs to o...</summary>
+    <category term="LLM"/>
+    <category term="Reinforcement Learning"/>
+  </entry>
+
+  <entry>
+    <id>https://theanilbajar.github.io/posts/paper-summary-do-llms-understand-user-preferences-evaluating-llms-on-user-rating-prediction</id>
+    <title>Paper Summary: Do LLMs Understand User Preferences? Evaluating LLMs on User Rating Prediction</title>
+    <link href="https://theanilbajar.github.io/posts/paper-summary-do-llms-understand-user-preferences-evaluating-llms-on-user-rating-prediction"/>
+    <updated>Fri, 26 Jan 2024 04:34:49 GMT</updated>
+    <published>Fri, 26 Jan 2024 04:34:49 GMT</published>
+    <summary type="text">This is a summary post of this paper: https://arxiv.org/abs/2305.06474
+
+## Why this paper/ Goal of this paper?
+As LLMs have the following properties:
+
+- Large-scale knowledge and real-world information
+- Strong generalization ability through effective few-shot learning
+- Strong reasons capability with chain-of-thought, self-consistency, etc.
+
+### Key question answered by this paper: Can we use LLMs for recommender systems?
+
+RQ1: Do off-the-shelf LLMs perform well for zero-shot and few-shot recom...</summary>
+    <category term="LLM"/>
+    <category term="Recommendation System"/>
+    <category term="Fine Tuning"/>
+  </entry>
+
+  <entry>
+    <id>https://theanilbajar.github.io/posts/all-about-gemini-models-and-training-process</id>
+    <title>All About Gemini Models and Training Process</title>
+    <link href="https://theanilbajar.github.io/posts/all-about-gemini-models-and-training-process"/>
+    <updated>Sun, 03 Dec 2023 04:34:49 GMT</updated>
+    <published>Sun, 03 Dec 2023 04:34:49 GMT</published>
+    <summary type="text">Gemini is a family of large language models (LLMs) developed by Google AI. They are designed to be more powerful and flexible than previous LLMs, capable of handling a wider range of tasks and data formats. Here&apos;s a detailed breakdown of key aspects:
+
+## Model(s) Architecture:
+- Multimodal Encoders: Encoders for specific data types i.e. text, audio, image to convert data to a common representation that the model can understand.
+- Early/Late Fusion: Combines the output from various encoders and a...</summary>
+    <category term="LLM"/>
+    <category term="Gemini"/>
+    <category term="Generative AI"/>
+  </entry>
+</feed>
