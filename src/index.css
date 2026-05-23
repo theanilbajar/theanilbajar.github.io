@@ -510,21 +510,59 @@ a:hover {
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.25rem 1.5rem;
   margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.toc-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font);
+  color: var(--text);
+  transition: background 0.2s;
+}
+
+.toc-toggle:hover {
+  background: var(--bg-card);
 }
 
 .toc-title {
   font-size: 0.85rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: var(--text-tertiary);
 }
 
+.toc-chevron {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  transition: transform 0.2s;
+}
+
+.toc--open .toc-chevron {
+  transform: rotate(0deg);
+}
+
+.toc-collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.toc--open .toc-collapse {
+  max-height: 500px;
+}
+
 .toc-list {
   list-style: none;
+  padding: 0 1.25rem 1rem;
 }
 
 .toc-item {

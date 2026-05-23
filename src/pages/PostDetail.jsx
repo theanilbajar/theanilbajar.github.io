@@ -42,6 +42,7 @@ export default function PostDetail() {
   const post = postsData.find(p => p.id === postId);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [tocOpen, setTocOpen] = useState(true);
 
   const headings = useMemo(() => post ? extractHeadings(post.content) : [], [post]);
 
@@ -102,15 +103,24 @@ export default function PostDetail() {
         </header>
 
         {headings.length > 0 && (
-          <nav className="toc">
-            <h3 className="toc-title">Table of Contents</h3>
-            <ul className="toc-list">
-              {headings.map((h, i) => (
-                <li key={i} className={`toc-item toc-level-${h.level}`}>
-                  <a href={`#${h.id}`}>{h.text}</a>
-                </li>
-              ))}
-            </ul>
+          <nav className={`toc ${tocOpen ? 'toc--open' : ''}`}>
+            <button
+              className="toc-toggle"
+              onClick={() => setTocOpen(!tocOpen)}
+              aria-expanded={tocOpen}
+            >
+              <span className="toc-title">Table of Contents</span>
+              <span className="toc-chevron">{tocOpen ? '▼' : '▶'}</span>
+            </button>
+            <div className="toc-collapse">
+              <ul className="toc-list">
+                {headings.map((h, i) => (
+                  <li key={i} className={`toc-item toc-level-${h.level}`}>
+                    <a href={`#${h.id}`} onClick={() => setTocOpen(false)}>{h.text}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </nav>
         )}
 

@@ -4,7 +4,7 @@
   <subtitle>Sharing my learnings and new research notes.</subtitle>
   <link href="https://theanilbajar.github.io/feed.xml" rel="self"/>
   <link href="https://theanilbajar.github.io"/>
-  <updated>Thu, 25 Dec 2025 06:34:49 GMT</updated>
+  <updated>Sat, 23 May 2026 06:34:49 GMT</updated>
   <id>https://theanilbajar.github.io/</id>
   <author>
     <name>Anil Kumar</name>
@@ -13,8 +13,8 @@
     <id>https://theanilbajar.github.io/posts/reinforcement-learning-techniques-for-large-language-models</id>
     <title>Reinforcement Learning Techniques for Large Language Models</title>
     <link href="https://theanilbajar.github.io/posts/reinforcement-learning-techniques-for-large-language-models"/>
-    <updated>Thu, 25 Dec 2025 06:34:49 GMT</updated>
-    <published>Thu, 25 Dec 2025 06:34:49 GMT</published>
+    <updated>Sat, 23 May 2026 06:34:49 GMT</updated>
+    <published>Sat, 23 May 2026 06:34:49 GMT</published>
     <summary type="text">## What is Reinforcement Learning?
 
 Reinforcement Learning (RL) is a type of machine learning where an agent learns to make decisions by taking actions in an environment to maximize cumulative reward. The agent learns through trial and error, receiving feedback in the form of rewards or penalties.
