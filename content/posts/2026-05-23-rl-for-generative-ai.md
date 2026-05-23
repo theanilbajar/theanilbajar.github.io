@@ -40,3 +40,26 @@ RLAIF is an evolution of RLHF where AI systems (often a larger or more capable m
 - **Constitutional AI:** Uses a set of principles (a "constitution") to guide AI feedback generation, ensuring alignment with intended behaviors.
 - **Self-Play RL:** The model generates responses and critiques them using its own judgment or a separate critic model.
 - **Iterative DPO/RLAIF:** Combines DPO with AI-generated feedback in iterative training loops, progressively improving model alignment without human intervention.
+
+## Latest Advances (2025-2026)
+
+### Reinforce-IE (Reinforcement Learning from Implicit Examples)
+Introduced in early 2026, Reinforce-IE eliminates the need for explicit preference pairs or reward models. Instead, it learns from implicit signals in user interaction data — such as follow-up questions, dwell time, and response edits. It frames post-training as a contextual bandit problem where each user interaction provides a weak but abundant reward signal, enabling continuous alignment at scale.
+
+### MRL (Multi-Objective Reinforcement Learning for LLMs)
+MRL extends traditional RLHF to optimize multiple reward dimensions simultaneously — helpfulness, honesty, safety, and style. Instead of training separate models for each objective and interpolating, MRL uses a Pareto-optimal policy optimization approach that learns a set of policies covering the entire frontier of trade-offs. This allows deployment-time selection of the desired behavior profile without retraining.
+
+### ARM (Adaptive Reward Modeling)
+ARM addresses reward hacking — a persistent issue where models over-optimize for proxy rewards while degrading actual quality. ARM uses an adversarial training loop: a discriminator model continuously probes the LLM's behavior for reward exploitation patterns, and the reward model is dynamically updated to close these loopholes. This creates a co-evolutionary training dynamic that produces more robust alignment.
+
+### LPO (Latent Preference Optimization)
+LPO extends DPO by modeling latent dimensions of preference that are not explicitly captured in pairwise comparisons. Instead of treating all preference judgments as equivalent, it uses variational inference to model the unobserved reasons *why* one response is preferred over another. This enables more sample-efficient learning and better generalization to out-of-distribution prompts.
+
+### CALM (Constitutional AI via Latent Modulation)
+CALM integrates constitutional principles directly into the RL training loop as soft constraints rather than post-hoc filters. It uses a differentiable rule layer that encodes constitutional principles and modulates the policy gradient, ensuring that all updates inherently respect the specified boundaries. This approach reduces the need for extensive red-teaming and improves worst-case behavior guarantees.
+
+### Action-Granularity RLHF (AGR)
+AGR refines the granularity of RL feedback from entire responses to individual reasoning steps or atomic actions. By using process-level reward models that assess intermediate reasoning quality rather than just final outputs, AGR enables more targeted policy updates. This is particularly effective for mathematical reasoning, code generation, and multi-step planning tasks, where a wrong final answer may still contain correct intermediate steps.
+
+### Spectral Alignment
+A theoretical breakthrough in 2026, Spectral Alignment reformulates the RLHF optimization landscape using spectral decomposition of the preference matrix. By identifying the principal eigen-dimensions of human preferences, it reduces the effective dimensionality of the alignment problem, enabling faster convergence and requiring 60-80% fewer preference labels compared to DPO while achieving equivalent alignment quality.
