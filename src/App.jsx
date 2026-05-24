@@ -11,8 +11,22 @@ const Archive = lazy(() => import('./pages/Archive'));
 const Search = lazy(() => import('./pages/Search'));
 const Tags = lazy(() => import('./pages/Tags'));
 
-function PageLoading() {
-  return <div className="page" style={{ textAlign: 'center', paddingTop: '3rem', color: 'var(--text-secondary)' }}>Loading...</div>;
+function PageSkeleton() {
+  return (
+    <div className="page">
+      <div className="skeleton skeleton-hero" />
+      <div className="skeleton-grid">
+        {[1, 2, 3].map(i => (
+          <div key={i} className="skeleton skeleton-card">
+            <div className="skeleton-line skeleton-line--short" />
+            <div className="skeleton-line" />
+            <div className="skeleton-line skeleton-line--medium" />
+            <div className="skeleton-line skeleton-line--long" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 function App() {
@@ -22,7 +36,7 @@ function App() {
         <div className="app">
           <Header />
           <main className="main">
-            <Suspense fallback={<PageLoading />}>
+            <Suspense fallback={<PageSkeleton />}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/posts" element={<Posts />} />
